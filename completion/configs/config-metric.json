@@ -1,0 +1,40 @@
+{
+    "task": "metric",
+    "gpu_ids": [0],
+    "vis": true,
+    "configs": {
+        "base": {
+            "dataroot": "../data/PartNet.v0.Merged",
+            "nThreads": 16,
+
+            "latent_dim": 128,
+            "noise_dim": 128,
+            "enc_pnfilters": [64, 128, 128, 256],
+            "dec_features": [256, 256],
+            "partG_features": [256, 512],
+            "partD_pnfilters": [64, 128, 128, 256],
+            "partD_features": [256, 512],
+
+            "batch_size": 200,
+            "n_epochs": 2000,
+            "lr": 5e-4,
+            "save_frequency": 500,
+
+            "num_z": 10
+        },
+        "adjust": {
+            "module": "part_comp",
+            "visdom_env": "metric",
+            "class_choice": "Chair",
+            "part_id": null,
+            "g_ratio": [1, 1],
+            "th_select": 0.5,
+            "sample_id": null,
+            "ae_ckpt_path": ["log/Chair/part_ae//ckpts/epoch_best.pth",
+                             "log/Chair/part_ae/ckpts/epoch_best.pth",
+                             "log/Chair/part_ae//ckpts/epoch_best.pth",
+                             "log/Chair/part_ae//ckpts/epoch_best.pth"],
+            "gan_ckpt_path": "log/Chair/part_comp//ckpts/epoch_2000.pth"
+        }
+    }
+}

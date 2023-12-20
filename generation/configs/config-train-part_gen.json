@@ -1,0 +1,43 @@
+{
+    "task": "train",
+    "gpu_ids": [0],
+    "vis": true,
+    "configs": {
+        "base": {
+            "dataroot": "../data/shapenetcore_partanno_segmentation_benchmark_v0",
+            "nThreads": 16,
+
+            "hparas": [128, 32, 128],
+            "latent_dim": 128,
+            "noise_dim": 128,
+            "enc_pnfilters": [64, 128, 128, 256],
+            "dec_features": [256, 256],
+            "partG_features": [256, 512],
+            "partD_pnfilters": [64, 128, 128, 256],
+            "partD_features": [256, 512],
+
+            "batch_size": 200,
+            "n_epochs": 2000,
+            "lr": 5e-4,
+            "save_frequency": 500
+        },
+        "adjust": {
+            "module": "part_gen",
+            "visdom_env": "train",
+            "class_choice": "Airplane",
+            "part_id": null,
+            "g_ratio": [1, 1],
+            "ext_ratio": 0.1,
+            "part_num": 6,
+            "CD_EMD": "EMD",
+            "axform_ckpt_path": "log/Airplane/k6/struct_gen//ckpts/epoch_best.pth",
+            "ae_ckpt_path": ["log/Airplane/k6/part_ae//ckpts/epoch_best.pth",
+                             "log/Airplane/k6/part_ae//ckpts/epoch_best.pth",
+                             "log/Airplane/k6/part_ae//ckpts/epoch_best.pth",
+                             "log/Airplane/k6/part_ae//ckpts/epoch_best.pth",
+                             "log/Airplane/k6/part_ae//ckpts/epoch_best.pth",
+                             "log/Airplane/k6/part_ae//ckpts/epoch_best.pth"],
+            "gan_ckpt_path": "log/Airplane/k6/part_gen//ckpts/epoch_2000.pth"
+        }
+    }
+}
