@@ -70,7 +70,7 @@ All the core codes are under the `completion` directory. We provide four modes: 
 
 1. Copy the corresponding config file to the `completion` directory and rename it to `config.json`.
 2. Add the required checkpoint path in the config file. Here we provide checkpoints for some pre-trained models ([Google Drive](https://drive.google.com/file/d/1QC-JkKWTJaNnUKcJdsOJhrX7zlpWn_rZ/view?usp=sharing)).
-3. Modify the parameters in the config file if you want. For example, you can modify the value of parameter `vis` in the `config-test.json` file to `true`, then it will visualize the test results rather than saving them.
+3. Modify the parameters in the config file if you want. For example, you can modify the value of parameter `vis` in the `config-test.json` file to `true`, then it will visualize the test results rather than saving them. It would be better for you to set $\alpha:\beta$ larger to get more diverse results.
 4. Use `python3 main.py` to run the code.
 
 ### Evaluation
