@@ -69,7 +69,7 @@ In addition, 6 real-world incomplete chairs and tables extracted from [ScanNet](
 All the core codes are under the `completion` directory. We provide four modes:  `train`, `test`, `metric`, and `realscan`. The corresponding config files can be found in the `configs` subdirectory. To run the code for one mode, you need to:
 
 1. Copy the corresponding config file to the `completion` directory and rename it to `config.json`.
-2. Add the required checkpoint path in the config file. Here we provide checkpoints for some pre-trained models ([Google Drive](https://drive.google.com/file/d/1QC-JkKWTJaNnUKcJdsOJhrX7zlpWn_rZ/view?usp=sharing)).
+2. Add the required checkpoint path in the config file. Remember the order of parts in the parameter `ae_ckpt_path` should be the same as the order of parts in `part_id2name` in `procpartnet.py`. Here we provide checkpoints for some pre-trained models ([Google Drive](https://drive.google.com/file/d/1QC-JkKWTJaNnUKcJdsOJhrX7zlpWn_rZ/view?usp=sharing)).
 3. Modify the parameters in the config file if you want. For example, you can modify the value of parameter `vis` in the `config-test.json` file to `true`, then it will visualize the test results rather than saving them. It would be better for you to set $\alpha:\beta$ larger to get more diverse results.
 4. Use `python3 main.py` to run the code.
 
@@ -84,7 +84,7 @@ After running mode `metric` (it may take several hours in a single NVIDIA TITAN 
 All the core codes are under the `generation` directory. We provide three modes:  `train`, `upartseg`, and `test`. The corresponding config files can be found in the `configs` subdirectory. To run the code for one mode, you need to:
 
 1. Copy the corresponding config file to the `generation` directory and rename it to `config.json`.
-2. Add the required checkpoint path in the config file. Here we provide checkpoints for some pre-trained models ([Google Drive](https://drive.google.com/file/d/104sD0tea6PBLhXcktp6rdfJ5h3agSv6Y/view?usp=sharing)).
+2. Add the required checkpoint path in the config file. Remember the order of parts in the parameter `ae_ckpt_path` should follow the part index (Ascending order). Here we provide checkpoints for some pre-trained models ([Google Drive](https://drive.google.com/file/d/104sD0tea6PBLhXcktp6rdfJ5h3agSv6Y/view?usp=sharing)).
 3. Modify the parameters in the config file if you want. For example, you can modify the value of parameter `vis` in the `config-test.json` file to `true`, then it will visualize the test results rather than calculate the metrics.
 4. Use `python3 main.py` to run the code.
 
